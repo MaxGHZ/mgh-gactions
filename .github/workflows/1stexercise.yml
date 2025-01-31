@@ -1,0 +1,16 @@
+name: deployment of exercise
+on: push
+jobs:
+  testing:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Run lint
+        run: npm lint
+      - name: Run Tests
+        run: npm test
+  deployment:
+    needs: testing
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy
+        run: npm build
