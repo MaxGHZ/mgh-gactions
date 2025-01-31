@@ -4,13 +4,29 @@ jobs:
   testing:
     runs-on: ubuntu-latest
     steps:
+      - name: Download Code
+        uses: actions/checkout@v4
+        with:
+          node-version: 20
+      - name: Install dependencies
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
       - name: Run lint
-        run: npm build
-      # - name: Run Tests
-      #   run: npm test
+        run: npm lint
+      - name: Run Tests
+        run: npm test
   deployment:
     needs: testing
     runs-on: ubuntu-latest
     steps:
+      - name: Download Code
+        uses: actions/checkout@v4
+        with:
+          node-version: 20
+      - name: Install dependencies
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
       - name: Deploy
         run: npm build
