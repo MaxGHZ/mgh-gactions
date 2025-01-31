@@ -14,10 +14,10 @@ jobs:
           node-version: 20
       - name: Install dependencies
         run: npm ci
-      # - name: Run lint
-      #   run: npm run lint
-      # - name: Run Tests
-      #   run: npm test
+      - name: Run lint
+        run: npm run lint
+      - name: Run Tests
+        run: npm run test
   deployment:
     needs: testing
     runs-on: ubuntu-latest
