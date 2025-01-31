@@ -5,7 +5,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Run lint
-        run: npm lint
+        run: npm build
       # - name: Run Tests
       #   run: npm test
   deployment:
